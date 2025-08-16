@@ -1,0 +1,52 @@
+@import "tailwindcss";
+@import "tailwindcss/utilities";
+
+@font-face {
+	font-family: 'Cambria';
+	src: url("/assets/fonts/Cambria.woff2") format("woff2"),
+		url("/assets/fonts/Cambria.woff") format("woff");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+:root {
+	color-scheme: light dark;
+	--color-primary: #0FC7C7;
+	--color-secondary: #008080;
+	--color-dark: #1F1F1F;
+	--color-background: #121212;
+	--color-text: #ECECEC;
+
+	background-color: #1a1a1a;
+	font-family: "Cambria", Georgia, serif;
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+/* Modern simple defaults */
+body,
+#root {
+	min-height: 100dvh;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+img {
+	display: block;
+}
+
+.container {
+	max-width: 72rem;
+	margin-inline: auto;
+	padding-inline: 1rem;
+}
