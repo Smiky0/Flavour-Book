@@ -138,7 +138,7 @@ export default function RecipeDetail() {
                                         : "hover:bg-white/10"
                                 }`}
                             >
-                                🍳 Will cook
+                                🧑‍🍳Will cook
                             </button>
                             <button
                                 onClick={() => save("cooked")}
@@ -148,7 +148,7 @@ export default function RecipeDetail() {
                                         : "hover:bg-white/10"
                                 }`}
                             >
-                                ✅ Cooked
+                                🍳Cooked
                             </button>
                             <button
                                 onClick={() => save("liked")}
@@ -158,7 +158,7 @@ export default function RecipeDetail() {
                                         : "hover:bg-white/10"
                                 }`}
                             >
-                                ❤️ Liked
+                                👍Liked
                             </button>
                         </div>
                         {status && (

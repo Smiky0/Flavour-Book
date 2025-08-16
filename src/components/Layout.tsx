@@ -68,13 +68,13 @@ export default function Layout() {
                 <Outlet />
             </main>
             <footer className="border-t border-[#2a2a2a] py-6 text-center opacity-70 text-md">
-                Built with TheMealDB data. . Designed and developed by{" "}
+                Built with TheMealDB data. Designed and developed by{" "}
                 <a
                     href="https://smikx.dev"
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    <span className="text-[var(--color-primary)]">Soumik</span>
+                    <span className="text-[var(--color-primary)]">@Soumik</span>
                 </a>
             </footer>
         </div>
