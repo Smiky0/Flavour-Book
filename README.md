@@ -1,69 +1,70 @@
-# React + TypeScript + Vite
+## Recipebook — Modern React Recipe Finder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Search recipes from around the world, view beautiful details, select ingredients to shop, watch related videos, and save dishes you will cook, cooked, or liked.
 
-Currently, two official plugins are available:
+### Features
+- Global recipe search using TheMealDB (no API key required)
+- Modern detail page: hero image with fallback, cuisine chips, YouTube search link, clear step-by-step instructions
+- Ingredients with checkboxes + “Order selected on Amazon” redirect
+- Saved collection with smooth filters and status controls (Will cook / Cooked / Liked)
+- Animated, responsive UI with a consistent theme and accessible focus states
+- Client-side caching with TTL for fast repeat loads
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Tech Stack
+- Vite + React 19 + TypeScript
+- React Router (routing)
+- Tailwind CSS v4 (via `@tailwindcss/vite`)
+- Framer Motion (micro-interactions)
+- TheMealDB (public recipe data)
 
-## Expanding the ESLint configuration
+### Getting Started
+Prerequisites: Node.js 18+ and npm.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Development
+- Install: `npm install`
+- Start dev server: `npm run dev`
+- Open the URL printed in the terminal (Vite default is http://localhost:5173)
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Production Build
+- Build: `npm run build`
+- Preview: `npm run preview`
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Project Structure
+```
+src/
+  App.tsx              # Routes (Home, RecipeDetail, Saved)
+  main.tsx             # App bootstrap
+  index.css            # Global styles, font, tokens
+  components/
+    Layout.tsx         # Header/nav + animated tab highlight
+    SearchBar.tsx      # Search input with responsive button
+    RecipeCard.tsx     # Result card
+    ImageWithFallback.tsx  # Image loader with SVG fallback
+    AnimatedFood.tsx       # Minimal SVG placeholder
+  pages/
+    Home.tsx           # Search + results grid
+    RecipeDetail.tsx   # Details, ingredients, actions
+    Saved.tsx          # Saved list with filters and statuses
+  services/
+    api.ts             # TheMealDB wrappers (search, get by id, by cuisine)
+    cache.ts           # TTL cache with stale fallback
+    storage.ts         # Saved items in localStorage
+  types.ts             # Shared types
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Configuration
+- No API keys required. The app calls TheMealDB endpoints directly from the browser.
+- Amazon and YouTube links are plain redirects built from the recipe or query.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Performance & SEO
+- Local font is preloaded; TheMealDB/YouTube/Amazon are preconnected.
+- Cached fetch with an 8s timeout and stale-fallback for resilience.
+- Respect `prefers-reduced-motion`; enhanced `:focus-visible` ring.
+- Basic SEO meta tags (title, description, canonical, Open Graph/Twitter) in `index.html`.
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Accessibility
+- Keyboard-friendly navigation with visible focus outlines.
+- Reduced motion support.
+
+### Data Attribution
+This project uses the free TheMealDB API (https://www.themealdb.com) for recipe data and images.
