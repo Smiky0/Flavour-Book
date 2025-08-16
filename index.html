@@ -1,13 +1,67 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React + TS</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <!-- Icons -->
+        <link rel="icon" type="image/svg+xml" href="/logo_notxt.svg" />
+
+        <!-- Preload local font for faster first paint -->
+        <link
+            rel="preload"
+            as="font"
+            type="font/woff2"
+            href="/assets/fonts/Cambria.woff2"
+            crossorigin
+        />
+
+        <!-- Performance hints for third-party domains used from the UI -->
+        <link rel="preconnect" href="https://www.themealdb.com" crossorigin />
+        <link rel="dns-prefetch" href="//www.themealdb.com" />
+        <link rel="preconnect" href="https://www.youtube.com" crossorigin />
+        <link rel="dns-prefetch" href="//www.youtube.com" />
+        <link rel="preconnect" href="https://www.amazon.com" crossorigin />
+        <link rel="dns-prefetch" href="//www.amazon.com" />
+
+        <!-- SEO basics -->
+        <title>Flavourbook — Find, cook, and save your favorite recipes</title>
+        <meta
+            name="description"
+            content="Search recipes from around the world, view ingredients, watch videos, and save what you'll cook, cooked, and liked."
+        />
+        <link rel="canonical" href="/" />
+        <meta name="robots" content="index, follow" />
+        <meta name="theme-color" content="#0FC7C7" />
+
+        <!-- Open Graph -->
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Recipebook" />
+        <meta
+            property="og:title"
+            content="Recipebook — Find, cook, and save your favorite recipes"
+        />
+        <meta
+            property="og:description"
+            content="Search recipes from around the world, view ingredients, watch videos, and save what you'll cook, cooked, and liked."
+        />
+        <meta property="og:url" content="/" />
+        <meta property="og:image" content="/logo.svg" />
+
+        <!-- Twitter -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+            name="twitter:title"
+            content="Recipebook — Find, cook, and save your favorite recipes"
+        />
+        <meta
+            name="twitter:description"
+            content="Search recipes from around the world, view ingredients, watch videos, and save what you'll cook, cooked, and liked."
+        />
+        <meta name="twitter:image" content="/logo.svg" />
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="module" src="/src/main.tsx"></script>
+    </body>
 </html>

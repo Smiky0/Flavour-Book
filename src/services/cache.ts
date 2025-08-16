@@ -48,14 +48,21 @@ export async function cachedFetchJson<T = unknown>(
         return entry!.v as T;
     }
     try {
-        const res = await fetch(url, init);
+        const controller = new AbortController();
+        const t = setTimeout(() => controller.abort(), 8000);
+        const res = await fetch(url, {
+            ...init,
+            signal: controller.signal,
+            headers: { Accept: "application/json", ...(init?.headers || {}) },
+        });
+        clearTimeout(t);
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const json = (await res.json()) as T;
         setCache(url, json, ttl);
         return json;
     } catch (err) {
-        // fallback to stale cache if available
+        // Fallback to stale cache if available
         if (entry) return entry.v as T;
-        throw err;
+        throw err as Error;
     }
 }
