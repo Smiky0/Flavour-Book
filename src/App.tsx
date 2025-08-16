@@ -3,6 +3,7 @@ import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import RecipeDetail from "./pages/RecipeDetail";
 import Saved from "./pages/Saved";
+import NotFound from "./pages/NotFound";
 
 export default function App() {
     return (
@@ -12,6 +13,7 @@ export default function App() {
                 <Route path="recipe/:id" element={<RecipeDetail />} />
                 <Route path="saved" element={<Saved />} />
             </Route>
+            <Route path="*" element={<NotFound />} />
         </Routes>
     );
 }
