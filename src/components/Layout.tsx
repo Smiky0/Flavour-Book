@@ -20,7 +20,8 @@ export default function Layout() {
                             loading="eager"
                             decoding="async"
                             fetchPriority="high"
-                            className="cursor-pointer w-32 sm:w-40"                            alt="Logo"
+                            className="cursor-pointer w-32 sm:w-40"
+                            alt="Logo"
                         />
                     </Link>
                     <nav className="relative flex items-center gap-1 text-lg p-2 rounded-full bg-transparent outline-1 outline-white/20">
@@ -76,6 +77,17 @@ export default function Layout() {
                 >
                     <span className="text-[var(--color-primary)]">@Soumik</span>
                 </a>
+                <p>
+                    This project is completely open source.{" "}
+                    <a
+                        className="mt-8"
+                        href="https://github.com/Smiky0/Flavour-Book"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <span className="underline">GitHub</span>
+                    </a>
+                </p>
             </footer>
         </div>
     );
